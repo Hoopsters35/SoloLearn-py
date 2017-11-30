@@ -23,3 +23,39 @@ if re.search(pattern2, 'agray'): #gr.y is found at the end, but not the beginnin
 if re.search(pattern2, 'graya'): #gr.y is found at the beginning, but not the end
 	print('2Match 3')
 print()
+
+#to check for repitition use * (0+), + (1+), or {x, y} (x-y) number of repititions, ? (0 or 1 rep)
+#{,} = *, {1,} = +, {0,1} = ?
+pattern3 = r"egg(spam)*"
+if re.search(pattern3, "egg"): #egg followed by 0 spams
+	print("3Match 1")
+if re.search(pattern3, "eggspamspam"): #egg followed by 2 spams
+	print('3Match 2')
+if re.search(pattern3, 'spam'): #doesnt have egg, wont match
+	print('3Match 3')
+print()
+
+pattern4 = r"egg(spam)+" #egg followed by 1+ spams
+if re.search(pattern4, "egg"):
+	print('4Match 1')
+if re.search(pattern4, 'eggspam'):
+	print('4Match 2')
+print()
+
+pattern5 = r"egg(spam){2,4}" #egg followed by 2-4 spams
+if re.search(pattern5, 'eggspam'): #only has 1 spam
+	print('5Match 1')
+if re.search(pattern5, 'eggspamspam'): #has 2
+	print('5Match 2')
+if re.search(pattern5, 'eggspamspamspamspamspam'): #has 5
+	print('5Match 3')
+print()
+
+pattern6 = r"egg(spam)?"
+if re.search(pattern6, "egg"):
+	print('6Match 1')
+if re.search(pattern6, "eggspam"):
+	print('6Match 2')
+if re.search(pattern6, "eggspamspam"):
+	print('6Match 3')
+print()
