@@ -15,6 +15,7 @@ print()
 
 # ^ at the beginning of a raw string says it should be found at the beginning. $ at the end means it should be found at the end
 pattern2 = r"^gr.y$"
+#best practice to not use re.match, but instead rely on the metacharacters and search the doc
 if re.search(pattern2, 'gr0y'): #gr.y is found at exactly the beginning and the end of the expression
 	print('2Match 1')
 if re.search(pattern2, 'agray'): #gr.y is found at the end, but not the beginning
