@@ -17,3 +17,14 @@ if re.search(pattern2, "Hello World"): #contains lower case letter(s)
 	print('2Match 1')
 if re.search(pattern2, "HELLO WORLD"): #all caps, wont match
 	print('2Match 2')
+print()
+
+#^ inside of a character class will invert the meaning --Most metacharacters do NOT work within char classes
+pattern3 = r"[^0-9]" #contains at least one non-digit character
+if re.search(pattern3, "Hello world"):
+	print("3Match 1")
+if re.search(pattern3, "hello w0rld"):
+	print('3Match 2')
+if re.search(pattern3, "78"):
+	print('3Match 3')
+print()
