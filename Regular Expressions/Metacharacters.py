@@ -42,7 +42,7 @@ if re.search(pattern4, 'eggspam'):
 	print('4Match 2')
 print()
 
-pattern5 = r"egg(spam){2,4}" #egg followed by 2-4 spams
+pattern5 = r"^egg(spam){2,4}$" #egg followed by 2-4 spams
 if re.search(pattern5, 'eggspam'): #only has 1 spam
 	print('5Match 1')
 if re.search(pattern5, 'eggspamspam'): #has 2
@@ -51,7 +51,8 @@ if re.search(pattern5, 'eggspamspamspamspamspam'): #has 5
 	print('5Match 3')
 print()
 
-pattern6 = r"egg(spam)?"
+#? checks if there is 0 or one spams after egg as the entire string
+pattern6 = r"^egg(spam)?$"
 if re.search(pattern6, "egg"):
 	print('6Match 1')
 if re.search(pattern6, "eggspam"):
