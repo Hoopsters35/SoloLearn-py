@@ -60,3 +60,13 @@ if re.search(pattern6, "eggspam"):
 if re.search(pattern6, "eggspamspam"):
 	print('6Match 3')
 print()
+
+#| is the bitwise or operator, will take either option - commonly used with groups to find varying whole words
+pattern7 = r"gr(e|a)y"
+if re.search(pattern7, "grey"):
+	print('7Match 1')
+if re.search(pattern7, "gray"):
+	print("7Match 2")
+if re.search(pattern7, "greay"): #won't match because operator only takes one of the possibilities
+	print('7Match 3')
+print()
