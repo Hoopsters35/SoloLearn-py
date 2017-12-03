@@ -2,6 +2,11 @@ import re
 pattern = r"spam" #r marks it as a raw string which don't escape any characters such as \n
 str = "eggsspamsausagespam"
 
+#makes a regular expression object - very useful
+phoneNumRegex = re.compile(r'(\d\d\d)?-?\d\d\d-?\d\d\d\d')
+mo = phoneNumRegex.search('My number is 8675309')
+print(mo.group())
+
 if re.match(pattern, "spamspamspam"): #Checks the BEGINNING of the string
 	print('match from match')
 else: print("No match from match")
